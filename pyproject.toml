@@ -40,6 +40,8 @@ dev = [
     "pytest ~=7.3.1",
     "pytest-cov ~=4.0.0",
     "bump2version==1.0.1",
+    "pylint",
+    "mypy"
 ]
 doc = [
     "sphinx ~=7.0.0",
@@ -71,3 +73,18 @@ per-file-ignores = [
 ]
 max-line-length = 120
 count = true
+
+[tool.pylint.'MESSAGES CONTROL']
+max-line-length = 120
+
+[tool.mypy]
+files = "src/code_quality_examples/,unit_test"
+
+[[tool.mypy.overrides]]
+module = "code_quality_examples.*"
+#disallow_untyped_defs = true
+#disallow_incomplete_defs = true
+
+[[tool.mypy.overrides]]
+module = "unit_test.*"
+check_untyped_defs = true

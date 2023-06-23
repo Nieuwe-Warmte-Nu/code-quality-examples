@@ -47,5 +47,3 @@ class WithoutSideEffects:
                 raise RuntimeError('Unknown ingredient in ingredients file')
 
         return menu
-
-
